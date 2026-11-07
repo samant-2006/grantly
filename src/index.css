@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #101827;
+  --color-primary: #172033;
+  --color-bg: #F7F8F5;
+  --color-card: #FFFFFF;
+  --color-lime: #D7F8A7;
+  --color-lime-dark: #6BBF47;
+  --color-secondary: #687386;
+  --color-border: #E5E9E5;
+  --color-success: #237A55;
+  --color-warning: #B7791F;
+  --color-error: #B42318;
+  --color-lime-50: #F4FDE8;
+  --color-lime-100: #E5FBCA;
+  --color-lime-200: #D7F8A7;
+  --color-navy-50: #F0F2F5;
+  --color-navy-100: #D9DDE5;
+  --color-navy-700: #1A2540;
+  --color-navy-800: #131C30;
+  --color-navy-900: #101827;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-primary font-sans antialiased;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-lime-dark ring-0;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card rounded-xl border border-border shadow-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-navy text-white rounded-lg font-medium text-sm
+           hover:bg-navy-700 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 
+           focus-visible:outline-lime-dark disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-card text-primary border border-border 
+           rounded-lg font-medium text-sm hover:bg-navy-50 transition-colors duration-150
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-dark;
+  }
+
+  .btn-lime {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-lime text-navy rounded-lg font-medium text-sm
+           hover:bg-lime-100 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2
+           focus-visible:outline-lime-dark;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .input {
+    @apply w-full px-3 py-2.5 bg-card border border-border rounded-lg text-sm text-primary 
+           placeholder:text-secondary focus:outline-none focus:ring-2 focus:ring-lime-dark/30 focus:border-lime-dark
+           transition-colors duration-150;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-primary mb-1.5;
+  }
+}
